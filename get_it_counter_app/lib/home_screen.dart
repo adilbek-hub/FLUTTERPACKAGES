@@ -18,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(child: Text(counterService.counter.toString())),
             const SizedBox.square(dimension: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
