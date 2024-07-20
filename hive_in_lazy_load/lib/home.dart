@@ -31,10 +31,24 @@ class ExampleWidgetModel {
   void doSome() async {
     var box = await Hive.openBox<dynamic>('testExample');
     await box.put('name', 'Asan');
-    await box.put(10, 'Hundrad');
+    await box.put('age', 23);
+    await box.put('children', ['Bakdoolot', 'Sergey', 'Alex']);
     final name = box.get('name') as String?;
-    final number = box.get(10) as String?;
     print(name);
-    print(number);
+    final age = box.get('age') as int?;
+    print(age);
+    // Default value is null
+    final surName = box.get('surName', defaultValue: 'Asanov') as String?;
+    print(surName);
+
+    final children = box.get('children') as List?;
+    print(children);
+
+    print('===========DELETE================');
+    await box.delete('children');
+    print(box.keys);
+    print(box.values);
+
+    box.close();
   }
 }
