@@ -33,6 +33,7 @@ class ExampleWidgetModel {
     await box.put('name', 'Asan');
     await box.put('age', 23);
     await box.put('children', ['Bakdoolot', 'Sergey', 'Alex']);
+    await box.putAll({'famely': true, 'friends': false});
     final name = box.get('name') as String?;
     print(name);
     final age = box.get('age') as int?;
@@ -43,6 +44,10 @@ class ExampleWidgetModel {
 
     final children = box.get('children') as List?;
     print(children);
+    final famelyFriends = box.get('famely') as bool?;
+    final famelyFriends2 = box.get('friends') as bool?;
+    print(famelyFriends);
+    print(famelyFriends2);
 
     print('===========DELETE================');
     await box.delete('children');
